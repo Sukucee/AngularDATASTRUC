@@ -19,34 +19,41 @@ p{
 
 .container {
   display: flex;
+  width: 100%;
   flex-direction: row-reverse;
   height: 100vh;
 }
 
 .Listings {
-  width: 250px;
+  width: 15%;
   background-color: #f2a5cb;
   padding-left: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.Listings::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }
 
 .Listings ul {
   list-style-type: none;
-  padding: 0;
   border-radius: 10px;
-  
+  padding: 0;
 }
 
 .Listings li {
   background-color: #ff68b4;
-  margin-right: 17px;
-  margin-top: 10px;
   padding: 10px;
   border-radius: 20px;
   text-align: center;
+  font-size: 14px;
   font-weight: bolder;
-  width: 200px;
+  width: 80%;
   font-family: Bahnschrift, Arial;
+  margin: 7px auto;
 }
 
 .Listings li a {
@@ -61,6 +68,8 @@ p{
 
 .content {
   width: 100%;
+  padding: 20px;
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: auto;
 }
