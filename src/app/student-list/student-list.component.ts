@@ -15,7 +15,7 @@ export class StudentListComponent {
 	id: string = '';
 	name: string = '';
 	grade: string = '';
-	age: number = 0;
+	age: number = 7;
 
 	addStudent(): void {
 		this.students.push({
@@ -25,7 +25,7 @@ export class StudentListComponent {
 			age: this.age,
 		});
 
-		this.age = 0;
+		this.age = 7;
 		this.grade = '';
 		this.id = '';
 		this.name = '';
