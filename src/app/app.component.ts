@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,13 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'AngularDATASTRUC';
+onInput($event: Event) {
+throw new Error('Method not implemented.');
+}
+  cartList: string[] = ["Laptop", "Computer"];
+  item: string = '';
+
+  addItems() {
+    this.cartList.push(this.item);
+  }
 }
