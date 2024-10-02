@@ -11,14 +11,14 @@ import EmployeeList from '../Database/EmployeeList';
   styleUrl: './employee-list.component.css'
 })
 export class EmployeeListComponent {
-  students: EmployeeList[] = [];
+  employee: EmployeeList[] = [];
 	id: string = '';
 	name: string = '';
 	position: string = '';
 	age: number = 18;
 
 	addEmployee(): void {
-		this.students.push({
+		this.employee.push({
 			id: this.id,
 			name: this.name,
 			position: this.position,
