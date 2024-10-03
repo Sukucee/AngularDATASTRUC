@@ -12,7 +12,6 @@ import FruitList from '../Database/FruitList';
 })
 export class FruitListComponent {
   fruits: FruitList[] = [];
-	id: string = '';
 	name: string = '';
 	quantity: number = 0;
 	price: number = 0;
@@ -26,7 +25,6 @@ export class FruitListComponent {
 
 		this.price = 0;
 		this.quantity = 0;
-		this.id = '';
 		this.name = '';
 	}
 }
