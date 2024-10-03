@@ -1,0 +1,57 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Movie Selection</h2>
+  
+		<div class="form-group">
+		  <label for="id">Id:</label>
+		  <input type="number" id="id" [(ngModel)]="id" name="id" required />
+		</div>
+  
+		<div class="form-group">
+		  <label for="title">Title:</label>
+		  <input type="text" id="title" [(ngModel)]="title" name="title" required />
+		</div>
+
+
+        <div class="form-group">
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" [(ngModel)]="genre" name="genre" required />
+        </div>
+          
+  
+		<div class="form-group">
+		  <label for="year">Year:</label>
+		  <input type="number" id="year" [(ngModel)]="year" name="year" required />
+		</div>
+  
+  
+		<button class="btn" (click)="addMovies()">Add to Watchlist</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Movie List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Id</th>
+			  <th>Title</th>
+              <th>Genre</th>
+              <th>Year</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let films of movie">
+			  <td>{{ films.id }}</td>
+			  <td>{{ films.title }}</td>
+			  <td>{{ films.genre }}</td>
+              <td>{{ films.year }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
