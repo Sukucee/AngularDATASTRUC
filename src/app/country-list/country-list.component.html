@@ -1,0 +1,49 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>COUNTRY ENLISTMENT</h2>
+  
+	
+		<div class="form-group">
+		  <label for="name">Name:</label>
+		  <input type="text" id="name" [(ngModel)]="name" name="name" required />
+		</div>
+
+        <div class="form-group">
+            <label for="continent">Continent:</label>
+            <input type="text" id="continent" [(ngModel)]="continent" name="continent" required />
+          </div>
+
+          <div class="form-group">
+            <label for="capital">Capital:</label>
+            <input type="text" id="capital" [(ngModel)]="capital" name="capital" required />
+          </div>
+  
+
+		<button class="btn" (click)="addCountry()"> ADD </button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>COUNTRY LIST</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>NAME</th>
+              <th>CONTINENT</th>
+              <th>CAPITAL</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let location of country">
+			  <td>{{ location.name }}</td>
+              <td>{{ location.continent }}</td>
+              <td>{{ location.capital }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
