@@ -1,0 +1,55 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>ADD ANIMALS</h2>
+  
+		<div class="form-group">
+		  <label for="name">Name:</label>
+		  <input type="text" id="name" [(ngModel)]="name" name="name" required />
+		</div>
+
+        <div class="form-group">
+            <label for="legs">Legs:</label>
+            <input type="text" id="legs" [(ngModel)]="legs" name="legs" required />
+          </div>
+
+
+        <div class="form-group">
+            <label for="wings">Wings:</label>
+            <input type="text" id="wings" [(ngModel)]="wings" name="wings" required />
+        </div>
+  
+		<div class="form-group">
+		  <label for="type">Type:</label>
+		  <input type="text" id="type" [(ngModel)]="type" name="type" required />
+		</div>
+  
+		
+  
+		<button class="btn" (click)="addAnimals()"> ADD </button>
+	  </div>
+  
+	  <div class="table-section">
+		<h1>Animal List</h1>
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Name</th>
+			  <th>Legs</th>
+              <th>Wings</th>
+			  <th>Type</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let animalia of animal">
+			  <td>{{ animalia.name }}</td>
+			  <td>{{ animalia.legs }}</td>
+              <td>{{ animalia.wings }}</td>
+			  <td>{{ animalia.type }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  

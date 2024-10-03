@@ -12,6 +12,7 @@ import { SubjectListComponent } from './subject-list/subject-list.component';
 import { CountryListComponent } from './country-list/country-list.component';
 import { SportListComponent } from './sport-list/sport-list.component';
 import { VegetableListComponent } from './vegetable-list/vegetable-list.component';
+import { AnimalComponent } from './animal/animal.component';
 
 export const routes: Routes = [
 
@@ -79,6 +80,11 @@ export const routes: Routes = [
 		title: 'Vegie-List',
 		component: VegetableListComponent,
 		path: 'vegetable-list',
+		},
+	{
+		title: 'Animal-List',
+		component: AnimalComponent,
+		path: 'animal-list',
 		},
 
 
