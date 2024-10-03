@@ -28,6 +28,7 @@ import { StationeryListComponent } from './stationery-list/stationery-list.compo
 import { FlowerListComponent } from './flower-list/flower-list.component';
 import { DestinationListComponent } from './destination-list/destination-list.component';
 import { LaptopListComponent } from './laptop-list/laptop-list.component';
+import { LaptopSpecsListComponent } from './laptop-specs-list/laptop-specs-list.component';
 
 export const routes: Routes = [
 
@@ -176,5 +177,10 @@ export const routes: Routes = [
 		title: 'Lappy List',
 		component: LaptopListComponent,
 		path: 'lappy-list',
+		},
+	{
+		title: 'Lappy Spec List',
+		component: LaptopSpecsListComponent,
+		path: 'lappyspec-list',
 		},
 ];
