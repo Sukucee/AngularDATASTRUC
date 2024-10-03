@@ -1,0 +1,72 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Lecture Listing</h2>
+  
+		<div class="form-group">
+		  <label for="title">Title:</label>
+		  <input type="text" id="title" [(ngModel)]="title" name="title" required />
+		</div>
+
+
+        <div class="form-group">
+            <label for="lecturer">Lecturer:</label>
+            <input type="text" id="lecturer" [(ngModel)]="lecturer" name="lecturer" required />
+        </div>
+          
+  
+		<div class="form-group">
+		  <label for="date">Date:</label>
+		  <input type="date" id="date" [(ngModel)]="date" name="date" required />
+		</div>
+
+        <div class="form-group">
+            <label for="time">Time:</label>
+            <input type="time" id="time" [(ngModel)]="time" name="time" required />
+          </div>
+
+        <div class="form-group">
+            <label for="duration">Duration:</label>
+            <input type="text" id="duration" [(ngModel)]="duration" name="duration" required />
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" id="location" [(ngModel)]="location" name="location" required />
+        </div>
+    
+  
+  
+		<button class="btn" (click)="addLectures()">Add to list</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Lecture List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Title</th>
+			  <th>Lecturer</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Duration</th>
+              <th>Location</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let type of lectures">
+			  <td>{{ type.title }}</td>
+			  <td>{{ type.lecturer }}</td>
+			  <td>{{ type.date }}</td>
+              <td>{{ type.time }}</td>
+              <td>{{ type.duration }}</td>
+              <td>{{ type.location }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
