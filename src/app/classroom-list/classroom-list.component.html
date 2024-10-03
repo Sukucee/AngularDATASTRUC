@@ -1,0 +1,56 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Classroom Enlistment</h2>
+  
+        <div class="form-group">
+            <label for="section">Section:</label>
+            <input type="text" id="section" [(ngModel)]="section" name="section" required />
+          </div>
+
+		<div class="form-group">
+		  <label for="building">Building:</label>
+		  <input type="number" id="building" [(ngModel)]="building" name="building" required />
+		</div>
+
+        <div class="form-group">
+            <label for="teacher">Teacher:</label>
+            <input type="text" id="teacher" [(ngModel)]="teacher" name="teacher" required />
+          </div>
+  
+		<div class="form-group">
+		  <label for="grade">Grade:</label>
+		  <input type="number" id="grade" [(ngModel)]="grade" name="grade" required />
+		</div>
+  
+  
+		<button class="btn" (click)="addClassroom()">ADD</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Classroom List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+              <th>Section</th>
+			  <th>Building</th>
+			  <th>Teacher</th>
+              <th>Grade</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let haluh of Classroom">
+              <td>{{ haluh.section }}</td>
+			  <td>{{ haluh.building }}</td>
+			  <td>{{ haluh.teacher }}</td>
+			  <td>{{ haluh.grade }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
+
