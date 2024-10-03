@@ -16,6 +16,7 @@ import { AnimalComponent } from './animal/animal.component';
 import { ToolListComponent } from './tool-list/tool-list.component';
 import { LanguageListComponent } from './language-list/language-list.component';
 import { GameListComponent } from './game-list/game-list.component';
+import { SoftwareListComponent } from './software-list/software-list.component';
 
 export const routes: Routes = [
 
@@ -103,6 +104,11 @@ export const routes: Routes = [
 		title: 'Game-List',
 		component: GameListComponent,
 		path: 'game-list',
+		},
+	{
+		title: 'Software-List',
+		component: SoftwareListComponent,
+		path: 'software-list',
 		},
 
 ];
