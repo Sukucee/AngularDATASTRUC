@@ -1,0 +1,49 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Grocery List</h2>
+  
+	
+		<div class="form-group">
+		  <label for="name">Name:</label>
+		  <input type="text" id="name" [(ngModel)]="name" name="name" required />
+		</div>
+
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <input type="text" id="type" [(ngModel)]="type" placeholder="(meat, vegetable, fruit, beverages, or others)"   name="type" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" id="price" [(ngModel)]="price" name="price" required />
+          </div>
+  
+  
+		<button class="btn" (click)="addGrocery()">Add to cart</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Cart List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Name</th>
+			  <th>Type</th>
+              <th>Pice</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let cart of grocery">
+			  <td>{{ cart.name }}</td>
+			  <td>{{ cart.type }}</td>
+              <td>{{ cart.price }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
