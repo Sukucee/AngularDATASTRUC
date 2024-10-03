@@ -29,6 +29,7 @@ import { FlowerListComponent } from './flower-list/flower-list.component';
 import { DestinationListComponent } from './destination-list/destination-list.component';
 import { LaptopListComponent } from './laptop-list/laptop-list.component';
 import { LaptopSpecsListComponent } from './laptop-specs-list/laptop-specs-list.component';
+import { ComputerHardwareListComponent } from './computer-hardware-list/computer-hardware-list.component';
 
 export const routes: Routes = [
 
@@ -182,5 +183,10 @@ export const routes: Routes = [
 		title: 'Lappy Spec List',
 		component: LaptopSpecsListComponent,
 		path: 'lappyspec-list',
+		},
+	{
+		title: 'Computer Hardware List',
+		component: ComputerHardwareListComponent,
+		path: 'computer_hardware-list',
 		},
 ];
