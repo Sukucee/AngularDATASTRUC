@@ -4,6 +4,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { FruitListComponent } from './fruit-list/fruit-list.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { BookListComponent } from './book-list/book-list.component';
+import { CityListComponent } from './city-list/city-list.component';
 
 export const routes: Routes = [
 
@@ -31,6 +32,11 @@ export const routes: Routes = [
 		title: 'Book-List',
 		component: BookListComponent,
 		path: 'book-list',
+		},
+	{
+		title: 'City-List',
+		component: CityListComponent,
+		path: 'city-list',
 		},
 
 

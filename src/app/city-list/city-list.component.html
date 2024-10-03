@@ -1,0 +1,56 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>City Enlistment</h2>
+  
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" id="id" [(ngModel)]="id" name="id" required />
+          </div>
+
+		<div class="form-group">
+		  <label for="name">Name:</label>
+		  <input type="text" id="name" [(ngModel)]="name" name="name" required />
+		</div>
+
+        <div class="form-group">
+            <label for="zipcode">Zipcode:</label>
+            <input type="number" id="zipcode" [(ngModel)]="zipcode" name="zipcode" required />
+          </div>
+  
+		<div class="form-group">
+		  <label for="region">Region:</label>
+		  <input type="text" id="region" [(ngModel)]="region" name="region" required />
+		</div>
+  
+  
+		<button class="btn" (click)="addCity()">ADD</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>City List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+              <th>Id</th>
+			  <th>Name</th>
+			  <th>Zipcode</th>
+              <th>Region</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let cities of city">
+              <td>{{ cities.id }}</td>
+			  <td>{{ cities.name }}</td>
+			  <td>{{ cities.zipcode }}</td>
+			  <td>{{ cities.region }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
+
