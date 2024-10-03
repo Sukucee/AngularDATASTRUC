@@ -1,0 +1,42 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Video Enlistment</h2>
+  
+	
+		<div class="form-group">
+		  <label for="title">Video Title:</label>
+		  <input type="text" id="title" [(ngModel)]="title" name="title" required />
+		</div>
+
+        <div class="form-group">
+            <label for="uploader">Uploader:</label>
+            <input type="text" id="uploader" [(ngModel)]="uploader" name="uploader" required />
+          </div>
+  
+  
+		<button class="btn" (click)="addVideo()">ADD</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>VIDEO LIST</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Video Title</th>
+			  <th>Uploader</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let vid of video">
+			  <td>{{ vid.title }}</td>
+			  <td>{{ vid.uploader }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
