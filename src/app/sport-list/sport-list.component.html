@@ -1,0 +1,52 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Add Athlete</h2>
+  
+		<div class="form-group">
+		  <label for="sport">Sport:</label>
+		  <input type="string" id="sport" [(ngModel)]="sport" name="sport" required />
+		</div>
+  
+		<div class="form-group">
+		  <label for="name">Name:</label>
+		  <input type="text" id="name" [(ngModel)]="name" name="name" required />
+		</div>
+  
+		<div class="form-group">
+		  <label for="age">Age:</label>
+		  <input type="number" id="age" [(ngModel)]="age" name="age" required />
+		</div>
+  
+		<div class="form-group">
+		  <label for="type">Sport Type:</label>
+		  <input type="text" id="type" [(ngModel)]="type" name="type" required />
+		</div>
+  
+		<button class="btn" (click)="addSport()">Add this person</button>
+	  </div>
+  
+	  <div class="table-section">
+		<h1>Sport List</h1>
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Sport</th>
+			  <th>Name</th>
+			  <th>Type</th>
+			  <th>Age</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let sporty of sports">
+			  <td>{{ sporty.sport }}</td>
+			  <td>{{ sporty.name }}</td>
+              <td>{{ sporty.type }}</td>
+			  <td>{{ sporty.age }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
