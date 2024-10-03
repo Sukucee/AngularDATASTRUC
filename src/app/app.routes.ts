@@ -18,6 +18,7 @@ import { LanguageListComponent } from './language-list/language-list.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { SoftwareListComponent } from './software-list/software-list.component';
 import { PhoneContactListComponent } from './phone-contact-list/phone-contact-list.component';
+import { MusicPlaylistComponent } from './music-playlist/music-playlist.component';
 
 export const routes: Routes = [
 
@@ -115,6 +116,11 @@ export const routes: Routes = [
 		title: 'Phone Contact-List',
 		component: PhoneContactListComponent,
 		path: 'contact-list',
+		},
+	{
+		title: 'Music PlayList',
+		component: MusicPlaylistComponent,
+		path: 'musicplaylist-list',
 		},
 
 ];
