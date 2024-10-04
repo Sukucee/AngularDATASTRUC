@@ -1,0 +1,49 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Tour List</h2>
+  
+	
+		<div class="form-group">
+		  <label for="destination">Destination:</label>
+		  <input type="text" id="destination" [(ngModel)]="destination" placeholder="(Manila Zoo)" name="destination" required />
+		</div>
+
+        <div class="form-group">
+            <label for="tourguide">Tour Guide Name:</label>
+            <input type="text" id="tourguide" [(ngModel)]="tourguide" name="tourguide" required />
+          </div>
+        
+          <div class="form-group">
+            <label for="fee">Fee:</label>
+            <input type="text" id="fee" [(ngModel)]="fee" name="fee" required />
+          </div>
+
+  
+		<button class="btn" (click)="addNaThis()">ADD</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Tour List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Destination</th>
+              <th>Tour Guide Name:</th>
+              <th>Fee</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let item of Tour">
+			  <td>{{ item.destination }}</td>
+              <td>{{ item.tourguide }}</td>
+              <td>{{ item.fee }}</td> 
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
