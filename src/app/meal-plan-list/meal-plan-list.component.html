@@ -1,0 +1,56 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Meal Plan Enlistment</h2>
+  
+	
+		<div class="form-group">
+		  <label for="meal">Meal:</label>
+		  <input type="text" id="meal" [(ngModel)]="meal" placeholder="(Breakfast)" name="meal" required />
+		</div>
+
+        <div class="form-group">
+            <label for="food">Food Items:</label>
+            <input type="text" id="food" [(ngModel)]="food" placeholder="(Oatmeal with berries and almonds)"   name="food" required />
+          </div>
+  
+		<div class="form-group">
+		  <label for="calories">Calories:</label>
+		  <input type="number" id="calories" [(ngModel)]="calories" name="calories" required />
+		</div>
+
+        
+		<div class="form-group">
+            <label for="nutrients">Nutrients:</label>
+            <input type="text" id="nutrients" [(ngModel)]="nutrients" placeholder="(Fiber, Protein, Antioxidants)"  name="nutrients" required />
+          </div>
+
+		<button class="btn" (click)="addMP()">ADD</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Meal Plan List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Meal</th>
+              <th>Food Items</th>
+              <th>Calories</th>
+              <th>Nutrients</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let fats of MealPlan">
+			  <td>{{ fats.meal }}</td>
+              <td>{{ fats.food }}</td>
+			  <td>{{ fats.calories }}</td>
+              <td>{{ fats.nutrients }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
