@@ -1,0 +1,101 @@
+body {
+    font-family: Bahnschrift, Arial;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Bahnschrift, Arial;
+  }
+  
+  h1 {
+    color: #4f2f3f;
+    margin-bottom: 20px;
+    
+    
+  }
+  h2 {
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  
+  .form-section {
+    background-color: #4f2f3f;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 40%;
+    font-family: Bahnschrift, Arial;
+    
+  }
+  
+  .table-section {
+    width: 60%;
+    font-family: Bahnschrift, Arial;
+  }
+  
+ 
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #ffccdd;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: #4f2f3f;
+  }
+  
+  .table th {
+    background-color: #ff99cc;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #ffe6f0;
+  }
+  
+  
+  .form-group {
+    margin-bottom: 15px;
+    
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffccdd;
+  }
+  
+  .form-group input {
+    width: 94%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .btn {
+    background-color: #ff99cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Bahnschrift, Arial;
+    
+  }
+  
+  .btn:hover {
+    background-color: #ff6699;
+  }
+  
