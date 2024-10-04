@@ -1,0 +1,49 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>DevTool List</h2>
+  
+	
+		<div class="form-group">
+		  <label for="name">Tool Name:</label>
+		  <input type="text" id="name" [(ngModel)]="name" placeholder="(Visual Studio)" name="name" required />
+		</div>
+
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <input type="text" id="type" [(ngModel)]="type" placeholder="(Code Editor)" name="type" required />
+          </div>
+  
+		<div class="form-group">
+		  <label for="purpose">Purpose:</label>
+		  <input type="text" id="purpose" [(ngModel)]="purpose" name="purpose" required />
+		</div>
+
+  
+		<button class="btn" (click)="addDevtool()">ADD</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Developer Tool List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Tool Name</th>
+              <th>Type</th>
+              <th>Purpose</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let where of DevTool">
+			  <td>{{ where.name }}</td>
+              <td>{{ where.type }}</td>
+			  <td>{{ where.purpose }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
