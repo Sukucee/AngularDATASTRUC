@@ -1,0 +1,58 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Accessory Store</h2>
+  
+	
+		<div class="form-group">
+		  <label for="type">Type:</label>
+		  <input type="text" id="type" [(ngModel)]="type" placeholder="(Necklace)" name="type" required />
+		</div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" [(ngModel)]="description" placeholder="(A decorative chain worn around the neck)" name="description" required />
+          </div>
+
+        <div class="form-group">
+            <label for="material">Material:</label>
+            <input type="text" id="material" [(ngModel)]="material" placeholder="(Gold, silver, beads and etc.)" name="material" required />
+          </div>
+  
+		<div class="form-group">
+		  <label for="price">Price:</label>
+		  <input type="price" id="price" [(ngModel)]="price" name="price" required />
+		</div>
+  
+  
+		<button class="btn" (click)="addThings()"> ADD </button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Accessory List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Type</th>
+              <th>Description</th>
+			  <th>Material</th>
+              <th>Price</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let item of accessory">
+			  <td>{{ item.type }}</td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.material }}</td>
+			  <td>{{ item.price }}</td>
+			  
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
+
