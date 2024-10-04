@@ -1,0 +1,56 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Budget Plan</h2>
+  
+	
+		<div class="form-group">
+		  <label for="category">Category:</label>
+		  <input type="text" id="category" [(ngModel)]="category" placeholder="(Utilities)" name="category" required />
+		</div>
+
+        <div class="form-group">
+            <label for="budget">Budgeted Amount:</label>
+            <input type="price" id="budget" [(ngModel)]="budget" placeholder="(900)" name="budget" required />
+        </div>
+
+        <div class="form-group">
+            <label for="amount">Actual Amount:</label>
+            <input type="price" id="amount" [(ngModel)]="amount" placeholder="(600)" name="amount" required />
+          </div>
+
+          <div class="form-group">
+            <label for="difference">Difference:</label>
+            <input type="price" id="difference" [(ngModel)]="difference" placeholder="(600)" name="difference" required />
+          </div>
+        
+  
+		<button class="btn" (click)="addBudget()">ADD</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Budget List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Category</th>
+			  <th>Budgeted Amount</th>
+              <th>Actual Amount</th>
+              <th>Difference</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let item of Budget">
+			  <td>{{ item.category }}</td>
+			  <td>{{ item.budget }}</td>
+              <td>{{ item.amount }}</td>
+              <td>{{ item.difference }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
