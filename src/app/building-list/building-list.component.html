@@ -1,0 +1,49 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Building Enlistment</h2>
+  
+	
+		<div class="form-group">
+		  <label for="type">Type:</label>
+		  <input type="text" id="type" [(ngModel)]="type" placeholder="(Residential)" name="type" required />
+		</div>
+
+        <div class="form-group">
+            <label for="feature">Features:</label>
+            <input type="text" id="feature" [(ngModel)]="feature" placeholder="(Includes apartments, single-family homes, and condos; often has amenities like gardens or pools)" name="feature" required />
+          </div>
+
+        <div class="form-group">
+            <label for="purpose">Purpose:</label>
+            <input type="text" id="purpose" [(ngModel)]="purpose" placeholder="(Housing families or individuals)" name="purpose" required />
+          </div>
+  
+		<button class="btn" (click)="addBuild()"> ADD </button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Building List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Building Type</th>
+              <th>Key Feature</th>
+			  <th>Purpose</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let item of Building">
+			  <td>{{ item.type }}</td>
+              <td>{{ item.feature }}</td>
+              <td>{{ item.purpose }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
+
