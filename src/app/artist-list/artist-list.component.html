@@ -1,0 +1,49 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Art Gallery</h2>
+  
+	
+		<div class="form-group">
+		  <label for="name">Name:</label>
+		  <input type="text" id="name" [(ngModel)]="name" placeholder="(Taylor Swift)" name="name" required />
+		</div>
+
+        <div class="form-group">
+            <label for="style">Art Style:</label>
+            <input type="text" id="style" [(ngModel)]="style" placeholder="(Music, Paintings and etc.)" name="style" required />
+        </div>
+
+        <div class="form-group">
+            <label for="work">Work:</label>
+            <input type="text" id="work" [(ngModel)]="work" placeholder="(Speak Now Album)" name="work" required />
+          </div>
+        
+  
+		<button class="btn" (click)="addArt()">Add to favorites</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Artist List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Artist</th>
+			  <th>Art Style</th>
+              <th>Work</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let item of artist">
+			  <td>{{ item.name }}</td>
+			  <td>{{ item.style }}</td>
+              <td>{{ item.work }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
