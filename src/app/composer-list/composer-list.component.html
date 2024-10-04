@@ -1,0 +1,42 @@
+<main>
+	<div class="container">
+	  <div class="form-section">
+		<h2>Favorite Composers</h2>
+  
+	
+		<div class="form-group">
+		  <label for="name">Name:</label>
+		  <input type="text" id="name" [(ngModel)]="name" placeholder="(Johann Sebastian Bach)" name="name" required />
+		</div>
+
+        <div class="form-group">
+            <label for="works">Work:</label>
+            <input type="text" id="works" [(ngModel)]="works" placeholder="(Brandenburg Concertos)" name="works" required />
+          </div>
+        
+  
+		<button class="btn" (click)="addArt()">Add to favorites</button>
+	  </div>
+  
+	  <div class="table-section">
+
+		<h1>Composer List</h1>
+
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Composer Name</th>
+              <th>Notable Works</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let item of composer">
+			  <td>{{ item.name }}</td>
+              <td>{{ item.works }}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </main>
+  
