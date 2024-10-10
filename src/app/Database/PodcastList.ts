@@ -1,4 +1,4 @@
-export default interface ComposerList {
+export default interface PodcastList {
 	title: string;
     host: string;
     genre: string;

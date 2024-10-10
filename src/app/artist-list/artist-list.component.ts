@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import ArtistList from '../Database/ArtistList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ArtistListService } from '../services/artist-list/artist-list.service';
 
 @Component({
   selector: 'app-artist-list',
@@ -11,18 +12,23 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './artist-list.component.css'
 })
 export class ArtistListComponent {
-  artist: ArtistList[] = [];
-	name: string = '';
-	style: string = '';
+  ArtistList= [] as ArtistList[];
+  constructor(private artistService: ArtistListService){
+	this.ArtistList = this.artistService.getArtist();
+  }
+
+  name: string = '';
+  style: string = '';
   work: string = '';
 
 	addArt(): void {
-		this.artist.push({
-			name: this.name,
-			style: this.style,
-      work:this.work,
-		});
-    this.work = '';
+		this.artistService.addArtist(
+		this.name,
+		this.style,
+      	this.work,
+		);
+
+    	this.work = '';
 		this.name = '';
 		this.style = '';
 	}

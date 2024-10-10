@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import TourList from '../Database/TourList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TourListService } from '../services/tour-list/tour-list.service';
 
 @Component({
   selector: 'app-tour-list',
@@ -11,17 +12,19 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './tour-list.component.css'
 })
 export class TourListComponent {
-  Tour: TourList[] = [];
+  Tour=[] as TourList [];
+  constructor (private tourService:TourListService)
+  {this.Tour=this.tourService.getTour();}
 	destination: string = '';
   tourguide: string = '';
   fee: number = 0;
 
 	addNaThis(): void {
-		this.Tour.push({
-			destination:this.destination,
-      tourguide:this.tourguide,
-      fee:this.fee,
-		});
+		this.tourService.addTour(
+			this.destination,
+      this.tourguide,
+      this.fee,
+		);
     this.fee = 0;
 		this.tourguide = '';
     this.destination = '';

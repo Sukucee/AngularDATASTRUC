@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import GroceryList from '../Database/GroceryList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { GroceryListService } from '../services/grocery-list/grocery-list.service';
 
 @Component({
   selector: 'app-grocery-list',
@@ -11,17 +12,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './grocery-list.component.css'
 })
 export class GroceryListComponent {
-  grocery: GroceryList[] = [];
+  	GroceryList=[] as GroceryList [];
+	constructor(private groceryService: GroceryListService)
+	{this.GroceryList=this.groceryService.getGrocery();}
+
 	name: string = '';
 	type: string = '';
-  price: number= 0;
+  	price: number= 0;
 
 	addGrocery(): void {
-		this.grocery.push({
-			name: this.name,
-			type: this.type,
-      price:this.price,
-		});
+		this.groceryService.addGrocery(
+			this.name,
+			this.type,
+      		this.price,
+		);
 
 		this.name = '';
 		this.type = '';

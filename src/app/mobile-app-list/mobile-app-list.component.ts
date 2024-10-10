@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import MobileAppList from '../Database/MobileAppList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MobileAppListService } from '../services/mobile-app-list/mobile-app-list.service';
 
 @Component({
   selector: 'app-mobile-app-list',
@@ -11,17 +12,19 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './mobile-app-list.component.css'
 })
 export class MobileAppListComponent {
-app: MobileAppList[] = [];
+app =[] as MobileAppList [];
+constructor (private mobileappService:MobileAppListService)
+{this.app=this.mobileappService.getMobileApp();}
 	title: string = '';
   genre: string = '';
   rating: number = 0;
 
 	addLappyspc(): void {
-		this.app.push({
-      title:this.title,
-			genre: this.genre,
-      rating: this.rating,
-		});
+		this.mobileappService.addMobileApp(
+      this.title,
+			this.genre,
+      this.rating,
+		);
 
 		this.title = '';
 		this.genre = '';

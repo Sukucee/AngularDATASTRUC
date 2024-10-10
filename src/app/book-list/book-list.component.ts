@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import BookList from '../Database/BookList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BookListService } from '../services/book-list/book-list.service';
 
 @Component({
   selector: 'app-book-list',
@@ -11,26 +12,29 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './book-list.component.css'
 })
 export class BookListComponent {
-  book: BookList[] = [];
+  	BookList = [] as BookList[];
+	constructor(private bookService: BookListService){
+		this.BookList = this.bookService.getBook();
+	}
 	id: string = '';
 	title: string = '';
 	author: string = '';
-  genre: string = '';
+  	genre: string = '';
 	quantity: number = 0;
 
 	addBooks(): void {
-		this.book.push({
-			id: this.id,
-			title: this.title,
-			author: this.author,
-      genre: this.genre,
-			quantity: this.quantity,
-		});
+		this.bookService.addBook(
+			this.id,
+			this.title,
+			this.author,
+      		this.genre,
+			this.quantity,
+		);
 
 		this.quantity = 0;
 		this.genre = '';
 		this.id = '';
 		this.title = '';
-    this.author = '';
+    	this.author = '';
 }
 }

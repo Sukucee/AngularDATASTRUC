@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import MovieList from '../Database/MovieList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MovieListService } from '../services/movie-list/movie-list.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -11,19 +12,22 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './movie-list.component.css'
 })
 export class MovieListComponent {
-  movie: MovieList[] = [];
+  movie = [] as MovieList [];
+  constructor(private movieService: MovieListService)
+  {this.movie=this.movieService.getMovies();}
+
 	id: string = '';
 	title: string = '';
-  genre: string = '';
+  	genre: string = '';
 	year: number = 0;
 
 	addMovies(): void {
-		this.movie.push({
-			id: this.id,
-			title: this.title,
-      genre: this.genre,
-			year: this.year,
-		});
+		this.movieService.addMovies(
+			this.id,
+			this.title,
+      		this.genre,
+			this.year,
+		);
 
 		this.year = 0;
 		this.genre = '';

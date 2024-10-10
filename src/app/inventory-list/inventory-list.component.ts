@@ -2,6 +2,7 @@ import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import InventoryList from '../Database/InventoryList';
+import { InventoryListService } from '../services/inventory-list/inventory-list.service';
 
 @Component({
   selector: 'app-inventory-list',
@@ -11,19 +12,21 @@ import InventoryList from '../Database/InventoryList';
   styleUrl: './inventory-list.component.css'
 })
 export class InventoryListComponent {
-  inventory: InventoryList[] = [];
+  InventoryList = [] as InventoryList [];
+  constructor(private inventryService:InventoryListService)
+  {this.InventoryList=this.inventryService.getInventory();}
 	name: string = '';
 	type: string = '';
   quantity: number= 0;
   price: number= 0;
 
 	addInventory(): void {
-		this.inventory.push({
-			name: this.name,
-			type: this.type,
-      quantity: this.quantity,
-      price:this.price,
-		});
+		this.inventryService.addInventory(
+			this.name,
+			this.type,
+      this.quantity,
+      this.price,
+		);
 
 		this.name = '';
 		this.type = '';

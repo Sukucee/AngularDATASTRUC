@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import BuildingList from '../Database/BuildingList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BuildingListService } from '../services/building-list/building-list.service';
 
 @Component({
   selector: 'app-building-list',
@@ -11,17 +12,22 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './building-list.component.css'
 })
 export class BuildingListComponent {
-  Building: BuildingList[] = [];
+  	BuildingList=[] as BuildingList[];
+	constructor(private buildingService: BuildingListService){
+		this.BuildingList =
+		this.buildingService.getBuild();
+	}
 	type: string = '';
 	feature: string = '';
 	purpose: string ='';
 
 	addBuild(): void {
-		this.Building.push({
-      type: this.type,
-			feature: this.feature,
-			purpose: this.purpose,
-		});
+	  this.buildingService.addBuild(
+      	this.type,
+		this.feature,
+		this.purpose,
+		);
+		
 		this.type = '';
 		this.feature = '';
 		this.purpose = '';

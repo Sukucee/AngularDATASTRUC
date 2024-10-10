@@ -2,6 +2,7 @@ import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import SportList from '../Database/SportList';
+import { SportListService } from '../services/sport-list/sport-list.service';
 
 @Component({
   selector: 'app-sport-list',
@@ -11,19 +12,22 @@ import SportList from '../Database/SportList';
   styleUrl: './sport-list.component.css'
 })
 export class SportListComponent {
-  sports: SportList[] = [];
+  sports=[] as SportList [];
+  constructor (private sportService: SportListService)
+  {this.sports=this.sportService.getSport();}
+
 	sport: string = '';
 	name: string = '';
 	type: string = '';
 	age: number = 8;
 
 	addSport(): void {
-		this.sports.push({
-			sport: this.sport,
-			name: this.name,
-			type: this.type,
-			age: this.age,
-		});
+		this.sportService.addSport(
+			this.sport,
+			this.name,
+			this.type,
+			this.age,
+		);
 
 		this.age = 8;
 		this.sport = '';

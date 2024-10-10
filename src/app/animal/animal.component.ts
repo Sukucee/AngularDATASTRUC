@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import AnimalList from '../Database/AnimalList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AnimalService } from '../services/animal/animal.service';
 
 @Component({
   selector: 'app-animal',
@@ -11,19 +12,22 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './animal.component.css'
 })
 export class AnimalComponent {
-  animal: AnimalList[] = [];
+   AnimalList=[] as AnimalList[];
+   constructor(private animalService: AnimalService){
+	this.AnimalList = this.animalService.getAnimal();
+   }
 	name: string = '';
 	legs: number = 0;
   wings: string = '';
 	type: string = '';
 
 	addAnimals(): void {
-		this.animal.push({
-			name: this.name,
-			legs: this.legs,
-      wings: this.wings,
-			type: this.type,
-		});
+		this.animalService.addAnimal(
+			this.name,
+			this.legs,
+      		this.wings,
+			this.type,
+		);
 
 		this.legs = 0;
 		this.type = '';

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import LaptopSpecList from '../Database/LaptopSpecList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { LaptopSpecsListService } from '../services/laptop-specs-list/laptop-specs-list.service';
 
 @Component({
   selector: 'app-laptop-specs-list',
@@ -11,17 +12,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './laptop-specs-list.component.css'
 })
 export class LaptopSpecsListComponent {
-  lappyspecs: LaptopSpecList[] = [];
+  LaptopSpecList=[] as LaptopSpecList[];
+  constructor (private laptopSpecService:LaptopSpecsListService)
+  {this.LaptopSpecList=this.laptopSpecService.getLaptopSpecs();}
+
 	model: string = '';
   processor: string = '';
   memory: string = '';
 
 	addLappyspc(): void {
-		this.lappyspecs.push({
-			model: this.model,
-      processor: this.processor,
-      memory:this.memory,
-		});
+		this.laptopSpecService.addLaptopSpecs(
+			this.model,
+      this.processor,
+      this.memory,
+		);
 
 		this.model = '';
 		this.processor = '';

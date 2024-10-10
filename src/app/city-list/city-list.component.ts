@@ -2,6 +2,7 @@ import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import CityList from '../Database/CityList';
+import { CitylListService } from '../services/city-list/cityl-list.service';
 
 @Component({
   selector: 'app-city-list',
@@ -11,19 +12,22 @@ import CityList from '../Database/CityList';
   styleUrl: './city-list.component.css'
 })
 export class CityListComponent {
-  city: CityList[] = [];
+  	cityList=[] as CityList[];
+	constructor(private cityService: CitylListService){
+		this.cityList = this.cityService.getCity();
+	}
 	id: string = '';
 	name: string = '';
 	zipcode: number = 0;
 	region: string = '';
 
 	addCity(): void {
-		this.city.push({
-      id: this.id,
-			name: this.name,
-			zipcode: this.zipcode,
-      region: this.region,
-		});
+		this.cityService.addCity(
+      		this.id,
+			this.name,
+			this.zipcode,
+            this.region,
+		);
 
 		this.zipcode = 0;
 		this.region = '';

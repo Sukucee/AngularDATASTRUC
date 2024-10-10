@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import PaintingList from '../Database/PaintingList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PaintingListService } from '../services/painting-list/painting-list.service';
 
 @Component({
   selector: 'app-painting-list',
@@ -11,15 +12,18 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './painting-list.component.css'
 })
 export class PaintingListComponent {
-  painting: PaintingList[] = [];
+  painting = [] as PaintingList [];
+  constructor (private paintingService: PaintingListService)
+  {this.painting=this.paintingService.getPainting();}
+
 	title: string = '';
 	style: string = '';
 
 	addArt(): void {
-		this.painting.push({
-			title: this.title,
-			style: this.style,
-		});
+		this.paintingService.addPainting(
+			this.title,
+			this.style,
+		);
 
 		this.title = '';
 		this.style = '';

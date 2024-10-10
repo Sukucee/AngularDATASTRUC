@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import StationeryList from '../Database/StationeryList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { StationeryListService } from '../services/stationery-list/stationery-list.service';
 
 @Component({
   selector: 'app-stationery-list',
@@ -11,17 +12,19 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './stationery-list.component.css'
 })
 export class StationeryListComponent {
-  stationery: StationeryList[] = [];
+  stationery=[] as StationeryList [];
+  constructor (private stationaryService: StationeryListService)
+  {this.stationery=this.stationaryService.getStationary();}
 	name: string = '';
 	quantity: number = 0;
 	price: number = 0;
 
 	addItemList(): void {
-		this.stationery.push({
-			name: this.name,
-			quantity: this.quantity,
-			price: this.price,
-		});
+		this.stationaryService.addStationary(
+			this.name,
+			this.quantity,
+			this.price,
+		);
 
 		this.price = 0;
 		this.quantity = 0;

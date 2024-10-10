@@ -2,6 +2,7 @@ import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import CountryList from '../Database/CountryList';
+import { CountryListService } from '../services/country-list/country-list.service';
 
 @Component({
   selector: 'app-country-list',
@@ -11,18 +12,22 @@ import CountryList from '../Database/CountryList';
   styleUrl: './country-list.component.css'
 })
 export class CountryListComponent {
-  country: CountryList[] = [];
+  CountryList=[] as CountryList[];
+  constructor(private countryService:CountryListService){
+    this.CountryList=this.countryService.getCountry();
+  }
+
 	name: string = '';
   continent: string = '';
   capital: string = '';
   
 
 	addCountry(): void {
-		this.country.push({
-      name:this.name,
-      continent:this.continent,
-      capital:this.capital,
-		});
+		this.countryService.addCountry(
+      this.name,
+      this.continent,
+      this.capital,
+		);
     
 	
 		this.name = '';

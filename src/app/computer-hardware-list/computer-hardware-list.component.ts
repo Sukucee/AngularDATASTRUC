@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import ComputerHardwareList from '../Database/ComputerHardwareList';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ComputerHardwareListService } from '../services/computer-hardware-list/computer-hardware-list.service';
 
 @Component({
   selector: 'app-computer-hardware-list',
@@ -11,17 +12,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './computer-hardware-list.component.css'
 })
 export class ComputerHardwareListComponent {
-  component: ComputerHardwareList[] = [];
+  	ComputerHardwareList=[] as ComputerHardwareList [];
+	constructor(private computerHardwareService: ComputerHardwareListService){
+		this.ComputerHardwareList=this.computerHardwareService.getComputer();
+	}
 	hardware: string = '';
 	brand: string = '';
 	price: number = 0;
 
 	addCHL(): void {
-		this.component.push({
-      hardware: this.hardware,
-			brand: this.brand,
-			price: this.price,
-		});
+		this.computerHardwareService.addComputer(
+     		this.hardware,
+			this.brand,
+			this.price,
+		);
 
 		this.price = 0;
 		this.brand = '';
